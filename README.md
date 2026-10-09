@@ -35,7 +35,7 @@ components/canvas/
   ParticleField.js       Star field and dust (maath random.inSphere)
   haloMaterial.js        Fresnel filament shader
 components/ui/
-  HUD.js                 Name, social links, section navigation, hover hints
+  HUD.js                 Name, availability, resume download, social links, navigation
   OverlayPanel.js        Sliding glass panel (side panel on desktop, bottom sheet on mobile)
   panels/                About, Experience, Skills, Projects, ProjectTerminal, GitHub, LinkedIn
 lib/
@@ -48,7 +48,8 @@ lib/
 ## Editing content
 
 - **Text:** everything shown on the site comes from `lib/resume.js`.
-- **Project source links:** each project's `sourceUrl` currently points to the GitHub profile. Replace it with the specific repository URL.
+- **Project links:** each project in `lib/resume.js` has a `sourceUrl` and `liveUrl`.
+- **Resume PDF:** replace `public/Hiten_Gupta_Resume.pdf` when you update your resume.
 - **New nodes:** add an entry to `RAW_NODES` and connect it in `EDGES` in `lib/graph.js`. Set `panel` to the panel it should open and, for satellites, `focus` to the section it should highlight.
 
 ## Behaviour notes

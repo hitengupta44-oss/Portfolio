@@ -25,21 +25,21 @@ export default function ParticleField({ count, reducedMotion }) {
         <PointMaterial
           transparent
           color="#94a3b8"
-          size={0.07}
+          size={0.06}
           sizeAttenuation
           depthWrite={false}
-          opacity={0.55}
+          opacity={0.4}
           fog={false}
         />
       </Points>
       <Points positions={nearDust} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          color="#67e8f9"
+          color="#9db8ff"
           size={0.03}
           sizeAttenuation
           depthWrite={false}
-          opacity={0.35}
+          opacity={0.28}
           fog={false}
         />
       </Points>

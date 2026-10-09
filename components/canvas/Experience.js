@@ -27,7 +27,7 @@ export default function Experience({ activeId, hoveredId, onHover, onSelect }) {
     return (
       <div
         aria-hidden="true"
-        className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,#0f172a_0%,#03040a_70%)]"
+        className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,#111a2e_0%,#070b14_70%)]"
       />
     );
   }

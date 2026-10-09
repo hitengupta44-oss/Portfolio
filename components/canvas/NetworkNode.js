@@ -13,11 +13,11 @@ const ACTIVE_SCALE = 1.22;
 const INTERACTIVE_THRESHOLD = 0.5;
 
 const GLOW_BY_KIND = {
-  core: 4.6,
-  section: 3.6,
-  external: 3.4,
-  project: 3.0,
-  satellite: 2.4,
+  core: 3.2,
+  section: 2.6,
+  external: 2.4,
+  project: 2.2,
+  satellite: 1.8,
 };
 
 export default function NetworkNode({
@@ -141,13 +141,13 @@ export default function NetworkNode({
         <div
           ref={labelRef}
           className={cn(
-            "node-label whitespace-nowrap select-none font-mono uppercase tracking-[0.18em] transition-[color,text-shadow] duration-300",
-            node.kind === "core" && "text-[12px] text-white",
-            (node.kind === "section" || node.kind === "external") && "text-[11px] text-slate-200",
-            (node.kind === "satellite" || node.kind === "project") && "text-[9px] text-slate-400",
+            "node-label whitespace-nowrap select-none font-sans transition-colors duration-300",
+            node.kind === "core" && "font-serif text-[17px] font-medium text-white",
+            (node.kind === "section" || node.kind === "external") && "text-[13px] font-semibold text-slate-100",
+            (node.kind === "satellite" || node.kind === "project") && "text-[11.5px] font-medium text-slate-400",
             (isHovered || isActive) && "text-white",
           )}
-          style={{ textShadow: isHovered || isActive ? `0 0 12px ${node.color}` : "none" }}
+          style={{ textShadow: "0 1px 10px rgba(7,11,20,0.95), 0 0 2px rgba(7,11,20,0.9)" }}
         >
           {node.label}
         </div>

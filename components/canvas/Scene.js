@@ -8,7 +8,7 @@ import Network from "./Network";
 import CameraRig from "./CameraRig";
 import ParticleField from "./ParticleField";
 
-const BACKGROUND = "#03040a";
+const BACKGROUND = "#070b14";
 
 function getLayoutScale(aspect) {
   if (aspect < 0.8) return 0.72;
@@ -44,9 +44,9 @@ export default function Scene({
       <color attach="background" args={[BACKGROUND]} />
       <fog attach="fog" args={[BACKGROUND, 16, 46]} />
       <ambientLight intensity={0.2} />
-      <pointLight position={[7, 6, 6]} intensity={60} color="#7dd3fc" distance={40} />
-      <pointLight position={[-7, -5, -6]} intensity={45} color="#f472b6" distance={40} />
-      <directionalLight position={[0, 8, 4]} intensity={0.4} color="#c4b5fd" />
+      <pointLight position={[7, 6, 6]} intensity={52} color="#9db8ff" distance={40} />
+      <pointLight position={[-7, -5, -6]} intensity={34} color="#c9a0d8" distance={40} />
+      <directionalLight position={[0, 8, 4]} intensity={0.4} color="#b9bfe8" />
 
       <ParticleField count={highQuality ? 4200 : 1800} reducedMotion={reducedMotion} />
 
@@ -84,10 +84,10 @@ export default function Scene({
           mipmapBlur
           luminanceThreshold={1}
           luminanceSmoothing={0.25}
-          intensity={highQuality ? 1.35 : 1.05}
-          radius={0.74}
+          intensity={highQuality ? 0.8 : 0.6}
+          radius={0.6}
         />
-        <Vignette eskil={false} offset={0.18} darkness={0.78} />
+        <Vignette eskil={false} offset={0.18} darkness={0.7} />
       </EffectComposer>
     </>
   );

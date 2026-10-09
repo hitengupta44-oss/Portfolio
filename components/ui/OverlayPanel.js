@@ -15,11 +15,11 @@ import LinkedInPanel from "./panels/LinkedInPanel";
 
 const PANEL_META = {
   about: { kicker: "Profile", title: "About" },
-  experience: { kicker: "Career", title: "Experience" },
-  projects: { kicker: "Work", title: "Projects" },
-  skills: { kicker: "Toolkit", title: "Technical Skills" },
-  github: { kicker: "External hook", title: "GitHub" },
-  linkedin: { kicker: "External hook", title: "LinkedIn" },
+  experience: { kicker: "Internship, freelance and leadership", title: "Experience" },
+  projects: { kicker: "Selected work", title: "Projects" },
+  skills: { kicker: "What I work with", title: "Technical skills" },
+  github: { kicker: "Open source", title: "GitHub" },
+  linkedin: { kicker: "Professional profile", title: "LinkedIn" },
 };
 
 function getHeading(node) {
@@ -86,40 +86,41 @@ export default function OverlayPanel({ activeId, onClose, onSelect }) {
       aria-hidden={!open}
       inert={!open}
       className={cn(
-        "glass fixed z-40 flex flex-col overflow-hidden rounded-3xl",
+        "glass fixed z-40 flex flex-col overflow-hidden rounded-2xl",
         "transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]",
         "inset-x-2 bottom-2 h-[62dvh]",
         "md:inset-x-auto md:bottom-4 md:right-4 md:top-4 md:h-auto",
-        isProject ? "md:w-[min(1040px,64vw)]" : "md:w-[min(520px,46vw)]",
+        isProject ? "md:bottom-auto md:w-[min(1040px,64vw)]" : "md:w-[min(520px,46vw)]",
         open
           ? "translate-y-0 opacity-100 md:translate-x-0"
           : "pointer-events-none translate-y-[110%] opacity-0 md:translate-x-[110%] md:translate-y-0",
       )}
     >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px"
-        style={{ background: `linear-gradient(90deg, transparent, ${node.color}, transparent)` }}
+        className="pointer-events-none absolute inset-y-0 left-0 w-[3px]"
+        style={{ background: node.color }}
       />
-      <header className="flex items-start justify-between gap-4 border-b border-white/8 px-5 pb-4 pt-5">
+      <header className="flex items-start justify-between gap-4 border-b border-white/10 px-6 pb-4 pt-5">
         <div className="min-w-0">
-          <p className="font-mono text-[10px] uppercase tracking-[0.3em]" style={{ color: node.color }}>
-            {heading.kicker}
-          </p>
-          <h2 id="overlay-title" className="mt-1 line-clamp-2 text-xl font-semibold tracking-tight text-white md:text-2xl">
+          <h2
+            id="overlay-title"
+            className="line-clamp-2 font-serif text-2xl font-medium tracking-tight text-white md:text-[1.75rem]"
+          >
             {heading.title}
           </h2>
+          <p className="mt-0.5 text-sm text-slate-400">{heading.kicker}</p>
         </div>
         <button
           ref={closeButtonRef}
           type="button"
           onClick={onClose}
-          className="rounded-full border border-white/10 p-2 text-slate-300 transition hover:rotate-90 hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60"
+          className="rounded-full border border-white/10 p-2 text-slate-300 transition hover:border-white/30 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           aria-label="Close panel and return to the constellation"
         >
           <X className="h-4 w-4" />
         </button>
       </header>
-      <div ref={scrollRef} className="scroll-thin flex-1 overflow-y-auto overscroll-contain px-1 pb-4 pt-1">
+      <div ref={scrollRef} className="scroll-thin flex-1 overflow-y-auto overscroll-contain px-2 pb-4 pt-2">
         <PanelBody node={node} open={open} onSelect={onSelect} />
       </div>
     </aside>
